@@ -1,0 +1,20 @@
+<%= form_for([@workflow_event, @transition]) do |f| %>
+  <% if @transition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transition.errors.count, "error") %> prohibited this transition from being saved:</h2>
+
+      <ul>
+      <% @transition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <h4>Workflow event: <%= @workflow_event.event %></h4>
+    <%= f.hidden_field :workflow_event_id, value: @workflow_event.id %>
+    <%= f.select(:workflow_state_id, @workflow.workflow_states.collect {|u| [u.state, u.id]}, :prompt => 'Select') %>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

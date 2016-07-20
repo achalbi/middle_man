@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_workflow_status.user_id %>
+</p>
+
+<p>
+  <strong>Workflow:</strong>
+  <%= @user_workflow_status.workflow %>
+</p>
+
+<p>
+  <strong>Workflow status:</strong>
+  <%= @user_workflow_status.workflow_status %>
+</p>
+
+<%= link_to 'Edit', edit_user_workflow_status_path(@user_workflow_status) %> |
+<%= link_to 'Back', user_workflow_statuses_path %>

@@ -1,0 +1,2 @@
+class MsgPubController < ApplicationController
+end

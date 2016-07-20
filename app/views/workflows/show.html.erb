@@ -1,0 +1,31 @@
+<h2 style="margin-bottom:0px;">Workflow</h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @workflow.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workflow.description %>
+</p>
+
+<h5 style="margin-bottom:0px;">Workflow state</h5>
+		<table style="margin-left:20px;">
+			<tbody>
+	<% @workflow.workflow_states.each do |ws| %>
+				<tr>
+				<td><%= ws.state %></td>
+				 <td><%= link_to 'Show', workflow_workflow_state_path(@workflow, ws) %></td>
+				<td><%= link_to 'Edit', edit_workflow_workflow_state_path(@workflow, ws) %></td>
+		        <td><%= link_to 'Destroy', workflow_workflow_state_path(@workflow, ws) , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		        </tr>
+	<% end %>
+			</tbody>
+		</table>
+
+
+<%= link_to 'Edit', edit_workflow_path(@workflow) %> |
+<%= link_to 'Back', workflows_path %>
+<%= link_to 'Create state', new_workflow_workflow_state_path(@workflow) %>

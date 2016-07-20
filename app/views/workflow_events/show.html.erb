@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Workflow state:</strong>
+  <%= @workflow_event.workflow_state.state %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @workflow_event.event %>
+<%= link_to 'Edit', edit_workflow_state_workflow_event_path(@workflow_state, @workflow_event) %>
+
+</p>
+
+<% if @transition.present? %>
+<table>
+  <thead>
+    <tr>
+      <th>Workflow state</th>
+      <th>Workflow event</th>
+      <th>Transition state</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @transition.workflow_event.workflow_state.state %></td>
+        <td><%= @transition.workflow_event.event %></td>
+        <td><%= @transition.workflow_state.state %></td>
+        <!-- <td><%= link_to 'Show', workflow_event_transition_path(@workflow_event , @transition) %></td> -->
+        <td><%= link_to 'Edit', edit_workflow_event_transition_path(@workflow_event,@transition) %></td>
+        <td><%= link_to 'Destroy', workflow_event_transition_path(@workflow_event , @transition), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
+<% else %>
+	<%= link_to 'set Transition', new_workflow_event_transition_path(@workflow_event) %>
+ |
+<% end %>
+<%= link_to 'Back', workflow_state_workflow_events_path %>

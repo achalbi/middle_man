@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Workflow Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Workflow</th>
+      <th>Workflow status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_workflow_statuses.each do |user_workflow_status| %>
+      <tr>
+        <td><%= user_workflow_status.user_id %></td>
+        <td><%= user_workflow_status.workflow %></td>
+        <td><%= user_workflow_status.workflow_status %></td>
+        <td><%= link_to 'Show', user_workflow_status %></td>
+        <td><%= link_to 'Edit', edit_user_workflow_status_path(user_workflow_status) %></td>
+        <td><%= link_to 'Destroy', user_workflow_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User workflow status', new_user_workflow_status_path %>

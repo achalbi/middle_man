@@ -1,0 +1,22 @@
+<%= form_for([@workflow_state, @workflow_event]) do |f| %>
+  <% if @workflow_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workflow_event.errors.count, "error") %> prohibited this workflow_event from being saved:</h2>
+
+      <ul>
+      <% @workflow_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :workflow_state_id %>
+  <div class="field">
+    <%= f.label :event %><br>
+    <%= f.text_field :event %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
