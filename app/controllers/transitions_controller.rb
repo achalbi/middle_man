@@ -67,12 +67,10 @@ class TransitionsController < ApplicationController
   end
 
   def set_state
-=begin
     uws = UserWorkflowStatus.find_or_create_by(user_id: current_user.id)
     uws.workflow_state = @transition.workflow_state
     uws.workflow = @transition.workflow_state.workflow
     uws.save
-=end
 
     respond_to do |format|
       format.json { render json:  @transition.workflow_state }
