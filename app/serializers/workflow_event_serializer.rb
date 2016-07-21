@@ -7,6 +7,6 @@ class WorkflowEventSerializer < ActiveModel::Serializer
 
   def url
   #	"http://middle_man.dev:3000" +workflow_event_path(object)+"/transitions/"+object.transition.id.to_s+"/set_state"
-  	"https://middle-men.herokuapp.com/" +workflow_event_path(object)+"/transitions/"+object.transition.id.to_s+"/set_state"
+  	"https://middle-men.herokuapp.com" +workflow_event_path(object)+"/transitions/"+object.transition.id.to_s+"/set_state"
   end
 end

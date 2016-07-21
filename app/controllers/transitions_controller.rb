@@ -11,6 +11,10 @@ class TransitionsController < ApplicationController
   # GET /transitions/1
   # GET /transitions/1.json
   def show
+    respond_to do |format|
+      format.html {}
+      format.json { render json:  @transition}
+    end
   end
 
   # GET /transitions/new
