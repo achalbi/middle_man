@@ -5,6 +5,9 @@ class UserWorkflowStatusesController < ApplicationController
   # GET /user_workflow_statuses.json
   def index
     @user_workflow_statuses = UserWorkflowStatus.all
+      respond_to do |format|
+        format.json { render json: @user_workflow_statuses }
+      end
   end
 
   # GET /user_workflow_statuses/1
