@@ -5,6 +5,10 @@ class WorkflowsController < ApplicationController
   # GET /workflows.json
   def index
     @workflows = Workflow.all
+    respond_to do |format|
+        format.html {}
+        format.json { render json: @workflows }
+    end
   end
 
   # GET /workflows/1
